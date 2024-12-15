@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #001f3f; /* Azul oscuro */
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        #reloj {
+            font-size: 48px;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="reloj"></div>
+
+    <script>
+        function actualizarReloj() {
+            const fecha = new Date();
+            const horas = String(fecha.getHours()).padStart(2, '0');
+            const minutos = String(fecha.getMinutes()).padStart(2, '0');
+            const segundos = String(fecha.getSeconds()).padStart(2, '0');
+            const tiempo = `${horas}:${minutos}:${segundos}`;
+            document.getElementById('reloj').textContent = tiempo;
+        }
+
+        setInterval(actualizarReloj, 1000);
+        actualizarReloj(); // Llamar una vez al cargar
+    </script>
+</body>
+</html>
